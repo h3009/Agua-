@@ -1,0 +1,83 @@
+@font-face {
+    font-family: 'font';
+    src: url('../../../fonts/8blimro.ttf');
+}
+
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+body { 
+    font-family: Arial, sans-serif; 
+    background-color: #f1f1f1; 
+}
+.main { 
+    width: 100%; 
+    max-width: 400px; 
+    margin: 50px auto; 
+    padding: 20px; 
+    background: #fff; 
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+p{
+    font-family: 'font';
+    font-size: 24px;
+    color: #f96969;
+    padding: 10px;
+}
+.step { 
+    display: none; 
+}
+.step.active { 
+    display: block; 
+}
+.input-group { 
+    margin-bottom: 15px; 
+    display: flex; align-items: center; 
+    border: 1px solid #f96969; 
+    border-radius: 50px; 
+    padding: 10px; 
+    transition: border 0.3s; 
+    position: relative; 
+}
+.input-group .icon { 
+    padding: 10px; 
+}
+.input-group input { 
+    width: 100%; 
+    border: none; 
+    outline: none; 
+    padding: 10px; 
+    border-radius: 50px; 
+}
+.input-group.invalid { 
+    border: 1px solid red; 
+}
+.buttons { 
+    display: flex; 
+    justify-content: space-between; 
+}
+.buttons button { 
+    padding: 10px 15px; 
+    border: none; 
+    background-color: #f96969; 
+    color: white; 
+    border-radius: 5px; 
+    cursor: pointer; 
+}
+.buttons button:disabled { 
+    background-color: #ccc; 
+    cursor: not-allowed; 
+}
+.error { 
+    color: red; 
+    font-size: 12px; 
+    display: none; 
+}
+.toggle-password { 
+    position: absolute; 
+    right: 10px; 
+    cursor: pointer; 
+}

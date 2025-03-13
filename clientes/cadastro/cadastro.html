@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro por Passos</title>
+    <link rel="stylesheet" href="css/cadastro.css">
+    <link rel="stylesheet" href="../../icon/font-awesome/css/all.min.css">
+    <style>
+        .invalid input {
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <form id="regForm" method="POST" action="processa_cadastro.php">
+            <p>Registra-te</p>
+            <div class="step active">
+                <div class="input-group"><i class="fa fa-user icon"></i><input type="text" name="nome" id="nome" placeholder="Nome" required></div>
+                <div class="input-group"><i class="fa fa-user icon"></i><input type="text" name="sobrenome" id="sobrenome" placeholder="Sobrenome" required></div>
+            </div>
+            <div class="step">
+                <div class="input-group"><i class="fa fa-phone icon"></i><input type="tel" name="telefone" id="telefone" placeholder="Telefone" required minlength="9" maxlength="15"></div>
+                <div class="input-group"><i class="fa fa-envelope icon"></i><input type="email" name="email" id="email" placeholder="Email" required></div>
+            </div>
+            <div class="step">
+                <div class="input-group"><i class="fa fa-map icon"></i><input type="text" name="endereco" id="endereco" placeholder="Endereço" required></div>
+                <div class="input-group"><i class="fa fa-map icon"></i><input type="text" name="bairro" id="bairro" placeholder="Bairro" required></div>
+            </div>
+            <div class="step">
+                <div class="input-group"><i class="fa fa-tint icon"></i><input type="text" name="cap_tanque" id="cap_tanque" placeholder="Capacidade do Tanque" required></div>
+                <div class="input-group"><i class="fa fa-id-card icon"></i><input type="text" name="nif" id="nif" placeholder="NIF (Opcional)"></div>
+            </div>
+            <div class="step">
+                <div class="input-group">
+                    <i class="fa fa-lock icon"></i>
+                    <input type="password" name="senha" id="senha" placeholder="Senha" required>
+                    <i class="fa fa-eye toggle-password" onclick="togglePassword('senha')"></i>
+                </div>
+                <div class="input-group">
+                    <i class="fa fa-lock icon"></i>
+                    <input type="password" name="comSenha" id="comSenha" placeholder="Confirmar Senha" required>
+                    <i class="fa fa-eye toggle-password" onclick="togglePassword('comSenha')"></i>
+                </div>
+                <span class="error" id="senhaError" style="display:none; color:red;">As senhas não coincidem</span>
+            </div>
+            <div class="buttons">
+                <button type="button" id="prevBtn" onclick="changeStep(-1)" disabled>Anterior</button>
+                <button type="button" id="nextBtn" onclick="validateStep()">Próximo</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        let currentStep = 0;
+        const steps = document.querySelectorAll(".step");
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+
+        function changeStep(n) {
+            steps[currentStep].classList.remove("active");
+            currentStep += n;
+            steps[currentStep].classList.add("active");
+            prevBtn.disabled = currentStep === 0;
+            nextBtn.innerText = currentStep === steps.length - 1 ? "Enviar" : "Próximo";
+        }
+
+        function validateStep() {
+            const inputs = steps[currentStep].querySelectorAll("input");
+            let valid = true;
+            
+            inputs.forEach(input => {
+                if (input.hasAttribute("required") && !input.value.trim()) {
+                    input.parentElement.classList.add("invalid");
+                    valid = false;
+                } else {
+                    input.parentElement.classList.remove("invalid");
+                }
+            });
+            
+            if (currentStep === steps.length - 1) {
+                const senha = document.getElementById("senha").value;
+                const comSenha = document.getElementById("comSenha").value;
+                const senhaError = document.getElementById("senhaError");
+                
+                if (senha !== comSenha) {
+                    senhaError.style.display = "block";
+                    document.getElementById("comSenha").parentElement.classList.add("invalid");
+                    valid = false;
+                } else {
+                    senhaError.style.display = "none";
+                    document.getElementById("comSenha").parentElement.classList.remove("invalid");
+                }
+            }
+            
+            if (valid) {
+                if (currentStep === steps.length - 1) {
+                    document.getElementById("regForm").submit();
+                } else {
+                    changeStep(1);
+                }
+            }
+        }
+
+        function togglePassword(id) {
+            const input = document.getElementById(id);
+            const icon = input.nextElementSibling;
+
+            if (input.type === "password") {
+                input.type = "text";
+                icon.classList.replace("fa-eye", "fa-eye-slash");
+            } else {
+                input.type = "password";
+                icon.classList.replace("fa-eye-slash", "fa-eye");
+            }
+        }
+    </script>
+</body>
+</html>

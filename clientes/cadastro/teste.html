@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastra-se</title>
+    <link rel="stylesheet" href="css/cadastro.css">
+    <link rel="stylesheet" href="../../icon/font-awesome/css/all.min.css">
+</head>
+<body>
+    <div class="main">
+        <form action="" class="cad_clientes">
+            <h1>Registra-te</h1>
+            <div class="nome">
+                <i class="fa fa-user icon"></i>
+                <input type="text" name="nome" id="nome" placeholder="Nome">
+            </div>
+            <div class="sobrenome">
+                <i class="fa fa-user icon"></i>
+                <input type="text" name="sobrenome" id="sobrenome" placeholder="Sobrenome">
+            </div>
+            <div class="telefone">
+                <i class="fa fa-telephone icon"></i>
+                <input type="tel" name="telefone" id="telefone" placeholder="Telefone">
+            </div>
+            <div class="email">
+                <i class="fa fa-mail icon"></i>
+                <input type="email" name="email" id="email" placeholder="Email">
+            </div>
+            <div class="endereco">
+                <i class="fa fa-map icon"></i>
+                <input type="text" name="endereco" id="endereco" placeholder="endereço">
+            </div>
+            <div class="bairro">
+                <i class="fa fa-map icon"></i>
+                <input type="text" name="bairro" id="bairro" placeholder="Bairro">
+            </div>
+            <div class="cap_tanque">
+                <i class="fa fa-iphone icon"></i>
+                <input type="text" name="cap_tanque" id="cap_tanque" placeholder="Capacidade do  Tanque">
+            </div>
+            <div class="nif">
+                <i class="fa fa-binary icon"></i>
+                <input type="text" name="nif" id="nif" placeholder="NIF">
+            </div>
+            <div class="senha">
+                <i class="fa fa-lock icon"></i>
+                <input type="password" class="br-0" name="senha" id="senha" placeholder="Senha">
+                <i class="fa fa-eye icon"></i>
+            </div>
+            <div class="comSenha">
+                <i class="fa fa-lock icon"></i>
+                <input type="password" class="br-0" name="comSenha" id="comSenha" placeholder="comSenha">
+                <i class="fa fa-eye icon"></i>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #f1f1f1;
+    overflow-y: auto;
+}
+.main{
+    width: 100%;
+    height: 100%;
+    background-color: #f1f1f1;
+    padding: 10px;
+}
+.cad_clientes{
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    padding: 5px;
+    overflow-y: auto;
+}
+.cad_clientes > div{
+    width: 100%;
+    height: 60px;
+    margin: 5px auto;
+    border-radius: 50px;
+    background-color: transparent;
+    border: 1px solid #f96969;
+    outline: 1px solid #edc647;
+    display: flex; 
+}
+.cad_clientes > div .icon{
+    width: auto;
+    height: 100%;
+    background-color: transparent;
+    float: left;
+    padding: 20px;
+    border-radius: 50px 0 0 50px ;
+}
+.cad_clientes > div .icon:last-child{
+    background-color: transparent;
+    border-radius: 0 50px 50px 0;
+}
+.cad_clientes > div input{
+    width: 100%;
+    height: 100%;
+    float: left;
+    border: none;
+    outline: none;
+    border-radius: 0 50px 50px 0;
+    padding: 14px;
+    background-color: transparent;
+}
+.cad_clientes .br-0{
+    border-radius: 0;
+}
+
+crie um step register com dois campos de cada vez
