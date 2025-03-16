@@ -1,0 +1,242 @@
+@font-face {
+    font-family: 'font';
+    src: url('../../../fonts/8blimro.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: 'font', Arial, sans-serif;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: #f96969;
+}
+
+p {
+    font-size: 28px;
+    color: #f96969;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    border: 2px solid #e9ecef;
+    border-radius: 30px;
+    padding: 12px 20px;
+    transition: all 0.3s ease;
+    background: #fff;
+}
+
+.input-group:hover {
+    border-color: #f96969;
+}
+
+.input-group:focus-within {
+    border-color: #f96969;
+    box-shadow: 0 0 8px rgba(249, 105, 105, 0.2);
+}
+
+.input-group .icon {
+    color: #6c757d;
+    margin-right: 12px;
+    font-size: 18px;
+    min-width: 25px;
+    text-align: center;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 16px;
+    color: #495057;
+    padding: 8px 0;
+}
+
+input::placeholder {
+    color: #adb5bd;
+    font-weight: 300;
+}
+
+.buttons {
+    margin-top: 30px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    background: #f96969;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button[type="submit"]:hover {
+    background: #e85959;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(249, 105, 105, 0.3);
+}
+
+.links {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.links a {
+    color: #6c757d;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+    display: block;
+    margin: 10px 0;
+}
+
+.links a:hover {
+    color: #f96969;
+}
+
+/* Estilos para 2FA */
+.two-factor {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.two-factor label {
+    color: #495057;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.two-factor input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #f96969;
+    cursor: pointer;
+}
+
+/* Mensagens de erro */
+.security-warning {
+    color: #dc3545;
+    font-size: 12px;
+    text-align: center;
+    margin: 15px 0;
+    padding: 10px;
+    background: #fff5f5;
+    border-radius: 8px;
+    border: 1px solid #ffe3e3;
+}
+
+/* Animações */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(5px); }
+    50% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+    100% { transform: translateX(0); }
+}
+
+.input-group.error {
+    animation: shake 0.4s ease;
+    border-color: #dc3545;
+    background: #fff5f5;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+    .main {
+        max-width: 90%;
+        padding: 25px;
+        margin: 15px auto;
+    }
+
+    p {
+        font-size: 24px;
+    }
+
+    .input-group {
+        padding: 10px 15px;
+    }
+
+    button[type="submit"] {
+        padding: 12px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 20px;
+    }
+
+    .main {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 10px;
+    }
+}
+
+/* Honeypot - Deve ficar invisível */
+.honeypot-field {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+}
+
+/* Toggle Password */
+.toggle-password {
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+    color: #6c757d;
+    transition: color 0.3s ease;
+}
+
+.toggle-password:hover {
+    color: #f96969;
+}

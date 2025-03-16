@@ -8,14 +8,9 @@
     padding: 0;
     box-sizing: border-box; 
 }
-html,body { 
-    width: 100%;
-    height: 100%;
+body { 
     font-family: Arial, sans-serif; 
-    background-color: #f1f1f1;
-    display: flex;
-    justify-content: center;
-    align-items: center; 
+    background-color: #f1f1f1; 
 }
 .main { 
     width: 100%; 
@@ -70,6 +65,10 @@ p{
 .input-group.invalid { 
     border: 1px solid red; 
 }
+.input_fotos span{
+    font-size: 13px;
+    color: #808080;
+}
 .buttons { 
     display: flex; 
     justify-content: space-between; 
@@ -96,36 +95,7 @@ p{
     right: 10px; 
     cursor: pointer; 
 }
-/* Adicione ao CSS */
-.error-message {
-    color: #dc3545;
-    font-size: 0.875em;
-    margin-top: 5px;
-    display: none;
-}
-/* ==================== Responsividade ==================== */
 
-/* 📱 Ajustes para celulares pequenos */
-@media (max-width: 480px) {
-    .main {
-        max-width: 90%;
-        padding: 15px;
-    }
-
-    p {
-        font-size: 20px;
-    }
-
-    .input-group input {
-        padding: 8px;
-        font-size: 14px;
-    }
-
-    .buttons button {
-        font-size: 14px;
-        padding: 10px;
-    }
-}
 @media (max-width: 480px) {
     .input-group {
         flex-direction: column;
@@ -155,4 +125,3 @@ p{
         width: 100%;
     }
 }
-

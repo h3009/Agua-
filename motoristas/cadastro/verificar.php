@@ -1,6 +1,6 @@
 <?php
 session_start(); // Inicia a sessão
-include '../../config/bd.php'; // Conexão com o banco de dados
+include '../../config/bd.php';; // Conexão com o banco de dados
 
 // Verifica se o usuário tem um e-mail e um código de verificação armazenados na sessão
 if (!isset($_SESSION['email']) || !isset($_SESSION['codigo_verificacao'])) {
@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = $_SESSION['email'];
         
         // Atualiza o usuário no banco de dados como verificado
-        $stmt = mysqli_prepare($connect, "UPDATE clientes SET verificado = 1 WHERE email = ?");
+        $stmt = mysqli_prepare($connect, "UPDATE motoristas SET verificado = 1 WHERE email = ?");
         mysqli_stmt_bind_param($stmt, "s", $email);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);

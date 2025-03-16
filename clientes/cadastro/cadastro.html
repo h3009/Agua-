@@ -29,18 +29,18 @@
                 <div class="input-group"><i class="fa fa-map icon"></i><input type="text" name="bairro" id="bairro" placeholder="Bairro" required></div>
             </div>
             <div class="step">
-                <div class="input-group"><i class="fa fa-tint icon"></i><input type="text" name="cap_tanque" id="cap_tanque" placeholder="Capacidade do Tanque" required></div>
+                <div class="input-group"><i class="fa fa-tint icon"></i><input type="number" name="cap_tanque" id="cap_tanque" placeholder="Capacidade do Tanque Ex: 15000 Litros" required></div>
                 <div class="input-group"><i class="fa fa-id-card icon"></i><input type="text" name="nif" id="nif" placeholder="NIF (Opcional)"></div>
             </div>
             <div class="step">
                 <div class="input-group">
                     <i class="fa fa-lock icon"></i>
-                    <input type="password" name="senha" id="senha" placeholder="Senha" required>
+                    <input type="password" name="senha" id="senha" placeholder="Senha" minlength="8" maxlength="100" required>
                     <i class="fa fa-eye toggle-password" onclick="togglePassword('senha')"></i>
                 </div>
                 <div class="input-group">
                     <i class="fa fa-lock icon"></i>
-                    <input type="password" name="comSenha" id="comSenha" placeholder="Confirmar Senha" required>
+                    <input type="password" name="comSenha" id="comSenha" placeholder="Confirmar Senha" minlength="8" maxlength="100" required>
                     <i class="fa fa-eye toggle-password" onclick="togglePassword('comSenha')"></i>
                 </div>
                 <span class="error" id="senhaError" style="display:none; color:red;">As senhas não coincidem</span>
@@ -48,6 +48,12 @@
             <div class="buttons">
                 <button type="button" id="prevBtn" onclick="changeStep(-1)" disabled>Anterior</button>
                 <button type="button" id="nextBtn" onclick="validateStep()">Próximo</button>
+            </div>
+            <div style="margin-top: 20px; text-align: center;font-family: 'font';">
+                <br>
+                <span style="color: #666; font-size: 0.9em;">
+                    Já tem conta? <a href="../log/log.html" style="color: #f96969;">Fazer login</a>
+                </span>
             </div>
         </form>
     </div>

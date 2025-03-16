@@ -1,41 +1,51 @@
 <?php
+require '../../vendor/autoload.php';
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use Dotenv\Dotenv;
 
-require 'PHPMailer/Exception.php';
-require 'PHPMailer/PHPMailer.php';
-require 'PHPMailer/SMTP.php';
+function enviarEmailVerificacao($emailDestinatario, $codigo) {
+    // Carrega variáveis do .env
+    $dotenv = Dotenv::createImmutable(__DIR__ . '/../../');
+    $dotenv->load();
 
-function enviarEmailVerificacao($email, $codigo_verificacao) {
+    // Verifica credenciais
+    if (!isset($_ENV['EMAIL_USUARIO']) || !isset($_ENV['EMAIL_SENHA'])) {
+        throw new Exception("Configure EMAIL_USUARIO e EMAIL_SENHA no .env");
+    }
+
     $mail = new PHPMailer(true);
 
     try {
-        // Configurações do servidor SMTP
+        // Configuração SMTP
         $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com'; // Servidor SMTP (exemplo: Gmail)
+        $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'seuemail@gmail.com'; // Seu e-mail SMTP
-        $mail->Password = 'suasenha'; // Sua senha ou senha de aplicativo
+        $mail->Username = $_ENV['EMAIL_USUARIO']; // E-mail do remetente (do .env)
+        $mail->Password = $_ENV['EMAIL_SENHA'];   // Senha de aplicativo
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
+        $mail->CharSet = 'UTF-8';
 
-        // Remetente e destinatário
-        $mail->setFrom('seuemail@gmail.com', 'Nome do Sistema');
-        $mail->addAddress($email);
+        // Remetente e Destinatário
+        $mail->setFrom($_ENV['EMAIL_USUARIO'], 'Nome do Sistema');
+        $mail->addAddress($emailDestinatario); // E-mail do usuário
 
-        // Conteúdo do e-mail
+        // Conteúdo
         $mail->isHTML(true);
         $mail->Subject = 'Código de Verificação';
-        $mail->Body    = "
-            <h3>Seu código de verificação é:</h3>
-            <p style='font-size: 18px; font-weight: bold;'>$codigo_verificacao</p>
-            <p>Insira este código no site para ativar sua conta.</p>
+        $mail->Body = "
+            <h1>Olá!</h1>
+            <p>Seu código de verificação é: <strong>$codigo</strong></p>
+            <p>Use-o para validar sua conta.</p>
         ";
 
-        // Envia o e-mail
         $mail->send();
         return true;
+
     } catch (Exception $e) {
+        error_log(message: "Erro ao enviar e-mail: " . $e->getMessage());
         return false;
     }
 }
