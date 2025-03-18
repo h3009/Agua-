@@ -1,0 +1,135 @@
+@font-face {
+    font-family: 'font';
+    src: url('../../../fonts/8blimro.ttf');
+}
+@font-face {
+    font-family: 'font2';
+    src: url('../../../fonts/Aerosol.ttf');
+}
+@font-face {
+    font-family: 'bubblegum';
+    src: url('../../../fonts/BubblegumSans-Regular.ttf');
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: 'font', Arial, sans-serif;
+    background-color: #f96969;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow-y: auto;
+    border-radius: 5px;
+}
+.header{
+    width: 100%;
+    height: 60px;
+    background-color: #f1f1f1;
+    border-bottom: 1px solid #f1f1f1;
+    padding: 5px;
+}
+.title{
+    width: auto;
+    height: 100%;
+    padding: 10px;
+    float: left;
+}
+.title span{
+    color: #f96969;
+    font-size: 24px;
+    font-family: 'bubblegum';
+
+}
+.h{
+    width: auto;
+    height: 100%;
+    float: right;
+    background-color: transparent;
+    padding: 4px 10px;
+}
+
+.fotoU{
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    float: right;
+}
+.fotoU img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.content{
+    width: 100%;
+    height: auto;
+}
+
+
+.footer{
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    bottom: 20px;
+    right: 0;
+    background-color: transparent;
+    padding: 0 20px;
+    z-index: 100;
+}
+.menu{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    text-align: center;
+    border-top: 1px solid #f1f1f1;
+}
+.menu a{
+    width: 20%;
+    height: 100%;
+    background-color: transparent;
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-decoration: none;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 0 5px;
+    color: #404040;
+}
+.menu a:hover{
+    transition: 0.6s ease-in-out;
+    color: #f96969;
+}
+.menu a span{
+    display: none;
+}
+@media only screen and (max-width:1000px){
+    .menu a span{
+        display: none;
+    }
+}
+@media only screen and (max-width:749px){
+    html,body{
+        padding: 0;
+    }
+
+    .footer{
+        padding: 0 0;
+        bottom: 0;
+    }
+}

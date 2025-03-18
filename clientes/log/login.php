@@ -1,5 +1,19 @@
 <?php
 session_start(); // Inicia a sessão
+$error = isset($_GET['error'])?$_GET['error']:0;
+$showError = '';
+switch ($error) {
+    case '1':
+        $showError = '<div  class="error">Email Inválido</div>';
+    break;
+    case '2':
+        $showError = '<div  class="error">Senha Inválida</div>';
+    break;
+    
+    default:
+        # code...
+    break;
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt">
@@ -32,7 +46,7 @@ session_start(); // Inicia a sessão
                 <input type="password" name="senha" id="senha" 
                        placeholder="Senha" required
                        autocomplete="current-password" minlength="8" maxlength="100">
-                <i class="fa fa-eye toggle-password" onclick="togglePassword('senha')"></i>
+                <i class="fa fa-eye toggle-password icon" onclick="togglePassword('senha')"></i>
             </div>
 
             <!-- Verificação em 2 etapas -->
@@ -46,6 +60,12 @@ session_start(); // Inicia a sessão
             <div class="buttons">
                 <button type="submit" id="loginBtn">Acessar</button>
             </div>
+
+            <?php
+                if (isset($_GET['error'])>0) {
+                    echo $showError;
+                }
+            ?>
 
             <div style="margin-top: 20px; text-align: center;">
                 <a href="recuperar_senha.php" style="color: #f96969; text-decoration: none; font-size: 0.9em;">

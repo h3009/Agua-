@@ -30,6 +30,7 @@ $user = mysqli_fetch_assoc($result);
 if (!$user) {
     // Delay para evitar enumeração de usuários
     sleep(2);
+    header('Location:login.php?error=1');
     die("Credenciais inválidas!");
 }
 
@@ -49,6 +50,7 @@ if (password_verify($senha, $user['senha'])) {
 } else {
     // Atraso intencional para evitar brute force
     sleep(2);
+    header('Location:login.php?error=2');
     die("Credenciais inválidas!");
 }
 ?>

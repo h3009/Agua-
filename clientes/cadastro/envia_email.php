@@ -29,7 +29,7 @@ function enviarEmailVerificacao($emailDestinatario, $codigo) {
         $mail->CharSet = 'UTF-8';
 
         // Remetente e Destinatário
-        $mail->setFrom($_ENV['EMAIL_USUARIO'], 'Nome do Sistema');
+        $mail->setFrom($_ENV['EMAIL_USUARIO'], 'Água+');
         $mail->addAddress($emailDestinatario); // E-mail do usuário
 
         // Conteúdo

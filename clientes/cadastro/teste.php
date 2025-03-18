@@ -1,7 +1,7 @@
 <?php
 require 'envia_email.php';
 
-$destino = 'harrymario30@gmail.com'; // Use um e-mail não-Gmail
+$destino = 'harrymario30@gmail.com';
 $codigo = rand(10000, 99999);
 
 if (enviarEmailVerificacao($destino, $codigo)) {
