@@ -1,0 +1,63 @@
+/* Estilos para a lista de pedidos */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.lista-pedidos {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.pedido-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.pedido-card:hover {
+    transform: translateY(-5px);
+}
+
+.pedido-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.prioridade {
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.prioridade.urgente {
+    background: #e74c3c;
+    color: white;
+}
+
+.prioridade.agendado {
+    background: #f1c40f;
+    color: white;
+}
+
+.btn-aceitar {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
+}
+
+.btn-aceitar:hover {
+    background-color: #219150;
+}

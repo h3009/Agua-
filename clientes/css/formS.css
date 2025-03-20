@@ -1,0 +1,231 @@
+main {
+    background: rgba(255, 255, 255, 0.95);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+/* Estilos do Modal */
+.modalS {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    overflow-y: auto;
+}
+
+.modal-content {
+    position: relative;
+    background: white;
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    animation: modalSlideIn 0.3s ease-out;
+    z-index: 1001;
+    overflow-y: auto;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    color: #666;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-modal:hover {
+    color: #f96969;
+    transform: scale(1.1);
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-abastecimento {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+
+.soft-ui {
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.soft-input, .soft-select {
+    width: 100%;
+    padding: 14px 20px;
+    border: none;
+    background: transparent;
+    font-size: 1em;
+    color: #333;
+    appearance: none;
+    transition: all 0.3s ease;    
+    border-radius: 12px;
+}
+
+.soft-input:focus, .soft-select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(249, 105, 105, 0.1);
+}
+
+.soft-input::placeholder {
+    color: #aaa;
+}
+
+.soft-select {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f96969' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+    border-radius: 12px;
+}
+
+.soft-ui:hover {
+    border-color: rgba(249, 105, 105, 0.2);
+    box-shadow: 0 4px 12px rgba(249, 105, 105, 0.08);
+}
+
+/* Botão de submit adicional (caso queira adicionar depois) */
+.btn-soft {
+    background: linear-gradient(135deg, #f96969, #ff7b7b);
+    color: white;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-soft:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(249, 105, 105, 0.2);
+}
+.solicitacoes-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+
+.solicitacao-card {
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.solicitacao-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 500;
+}
+
+.prioridade-urgente { background: #ffe5e5; color: #ff4444; }
+.prioridade-agendado { background: #e5f3ff; color: #448aff; }
+
+.status-pendente { background: #fff3e0; color: #ff9100; }
+.status-andamento { background: #e3f2fd; color: #2196f3; }
+.status-concluido { background: #e8f5e9; color: #4caf50; }
+
+.detalhes-solicitacao {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 3rem;
+    color: #666;
+}
+
+.btn-cancelar {
+    background: #ffe5e5;
+    color: #ff4444;
+    border: 1px solid #ffcccc;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-cancelar:hover {
+    background: #ff4444;
+    color: white;
+}
+
+.status-cancelado {
+    background: #f5f5f5;
+    color: #666;
+    border: 1px solid #ddd;
+}
+@media (max-width: 600px) {
+    .modal-content {
+        width: 90%;
+        margin: 1rem auto;
+        padding: 1.5rem;
+    }
+}
+@media (max-width: 480px) {
+    .form-abastecimento {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    .soft-input, .soft-select {
+        padding: 12px 16px;
+    }
+}

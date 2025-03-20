@@ -1,4 +1,10 @@
 <?php
+header("Content-Security-Policy: default-src 'self'");
+header("X-Frame-Options: DENY");
+header("X-Content-Type-Options: nosniff");
+ini_set('session.cookie_secure', 1); // Apenas em HTTPS
+ini_set('session.cookie_httponly', 1); // Impede acesso via JavaScript
+ini_set('session.cookie_samesite', 'Strict'); // Previne ataques CSRF
 session_start(); // Inicia a sessão
 $error = isset($_GET['error'])?$_GET['error']:0;
 $showError = '';
