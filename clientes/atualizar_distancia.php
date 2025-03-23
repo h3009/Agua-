@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../../config/bd.php';
+include '../config/bd.php';
 
 // Coordenadas do usuário e motorista
 $latitude_usuario = $_SESSION['latitude'];

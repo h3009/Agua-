@@ -248,20 +248,16 @@ $result = mysqli_stmt_get_result($stmt);
                     <i class="fa fa-truck"></i>
                     <span>Solicitação de Abastecimento</span> 
                 </a>
-                <a href="motoristas.php">
-                    <i class="fa fa-users"></i>
-                    <span>Lista de Motoristas Próximos</span> 
+                <a href="lista_pedidos.php">
+                    <i class="far fa-list "></i>
+                    <span>Lista de Pedidos Em Andamento</span> 
                 </a>
                 <a href="#">
-                    <i class="fa fa-map"></i>
-                    <span>Acompanhamento em Tempo Real</span> 
-                </a>
-                <a href="#">
-                    <i class="fa fa-users-medical"></i>
+                    <i class="far fa-users-medical"></i>
                     <span>Educação Hídrica</span> 
                 </a>
                 <a href="#">
-                    <i class="fa fa-map-pin"></i>
+                    <i class="far fa-map-pin"></i>
                     <span>Áreas Com Demanda de Água</span> 
                 </a>
             </nav>
